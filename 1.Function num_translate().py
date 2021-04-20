@@ -1,28 +1,21 @@
-def num_translate(Numbers):
-    glossary = [
-        ['one', 'один', 1],
-        ['two', 'два', 2],
-        ['three', 'три', 3],
-        ['four', 'четыре', 4],
-        ['five', 'пять', 5],
-        ['six', 'шесть', 6],
-        ['seven', 'семь', 7],
-        ['eight', 'восемь', 8],
-        ['nine', 'девять', 9],
-        ['ten', 'десять', 10],
-    ]
-
-    i = 0
-    while i < len(glossary):
-        if input_number == glossary[i][0]:
-            return glossary[i][1]
-        elif input_number == glossary[i][1]:
-            return glossary[i][0]
-        elif input_number == glossary[i][2]:
-            return glossary[i][1]
-    return print(None)
+glossary = {
+    1: "one", 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+    6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten'
+}
 
 
-Numbers = input("Введите число от 0 до 10 ")
-num_translate(Numbers)
+def func_translate(num_for_translate):
+    if 0 < num_for_translate < 11:
+        print(glossary[num_for_translate])
+    else:
+        print(None)
 
+
+while True:
+    num_for_translate = input("Введите число от 0 до 10: ")
+    if num_for_translate.isdigit():
+        num_for_translate = int(num_for_translate)
+        func_translate(num_for_translate)
+        break
+    else:
+        print("Ошибка! Вы ввели текст, а нужно число")
